@@ -10,6 +10,7 @@ An elegant, easily customizable multi select dropdown in Angular built on top of
 * Custom Direction for the dropdown (top, bottom, left, right).
 * Restric No. of items that you want to display on the dropdown button.
 * Works well with/without Bootstrap/Foundation.
+
 ![](http://s12.postimg.org/xkgsn4xzx/multiselectdropdown.png)
 ![](http://s10.postimg.org/tq50iqf3d/materialselect.png)
 
