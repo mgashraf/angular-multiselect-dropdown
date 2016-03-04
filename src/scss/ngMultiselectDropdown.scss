@@ -1,0 +1,102 @@
+$border-color: #EAEAEA;
+$background: #FFF;
+$global-radius: 3px;
+$icon-color: #666;
+.ng-popover{
+	.filters-list{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		li{
+			border-bottom: 1px solid $border-color; 
+			padding: 5px 15px;
+			.checkbox-container{
+				vertical-align: -3px;
+				margin-right: 5px;
+			} 
+			label{
+				display: inline;
+				cursor: pointer;
+			}
+		}
+	}
+	.show-columns{
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		background: $background;
+		width: 100%;
+		text-align: center;
+		padding: 8px;
+		display: inline-block;
+		border-top: 1px solid $border-color;
+	}
+	.ng-popover-content{
+		// padding-bottom: 40px;
+	}
+	.checkbox-container{
+		position: relative;
+		height: 15px;
+		width: 15px;
+		display: inline-block;
+		background: $background;
+		border: 1px solid $border-color;
+		border-radius: $global-radius;
+		cursor: default;
+		vertical-align: bottom;
+		input[type="checkbox"]{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			z-index: 3;
+	 	}
+		 .icon-tick{
+		        position: absolute;
+		        top: -3px;
+		        left: -2px;
+		        display: none;
+		        .material-icons{
+			font-size: 19px;
+			color: $icon-color;
+		        }
+		}
+		 input[type="checkbox"]:checked + .icon-tick{
+		        display: block;
+		}
+		label{
+		        margin-left: 20px;
+		        line-height: 10px;
+		}
+	}
+}
+.multiselectDropdownBtn{
+	position: relative;
+	color: #008CCD;
+	border-radius: 3px;
+	text-decoration: none;
+	padding: 14px 18px;
+	background: #FFF;
+	border: 1px solid #EAEAEA;
+	transition: background 200ms ease;
+	cursor: pointer;
+	padding-right: 35px;
+	&:hover{
+		background: transparent;
+	}
+        	&::after {
+	            content: '';
+	            position: absolute;
+	            top: 48%;
+	            right: 0;
+	            margin-right: 18px;
+	            width: 0;
+	            height: 0;
+	            border-right: 4px solid transparent;
+	            border-left:4px solid;
+	            border-left-color: transparent;
+	            border-top: 4px solid #008CCD;
+        	}
+}

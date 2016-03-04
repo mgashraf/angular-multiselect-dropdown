@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="popoverApp">
+<head>
+	<meta charset="UTF-8">
+	<title>ngMultiselectDropdown | A simple, elegant and easily customizable multi selection dropdon in angular | angular, popover, generic, elegant, material, angular-popover, bootstrap, foundation, tranclude, custom popover, custom, transclude, popover directive, multi select, multi selection, select multiple, dropdown, multi select dropdown</title>
+	<meta name="description" content="A simple, elegant and easily customizable multiselect dropdown in angular">
+	<meta name="keywords" content="angular, popover, multiselect, generic, elegant, material, angular-popover, bootstrap, foundation, tranclude, custom popover, custom, transclude, popover directive, multi select dropdown, dropdown, angular multiselect, multi select">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="dist/css/multiselectDropdown.css">
+	<link rel="stylesheet" href="dist/css/demo.css"> 
+</head>
+<body ng-controller="masterController">
+	<header>
+		<h1>ngMultiSelectDropdown <br><small>An elegant, easily customizable multi select dropdown in Angular <br>built on top of <a href="https://github.com/FauzanKhan/angular-popover" target="_blank">ngPopover</a>.</small></h1>
+	</header>
+	<div class="multiselect-demo-container">
+		<div class="features-dropdown dropdown-btn">
+			<div class="multiselect-wrapper">
+				<multiselect-dropdown trigger-id="features" dd-direction="bottom" options="multiselectFeatures" display-prop="value" value-prop="value" ng-model="model.features" on-select="multiselectSelection('1')" on-open="miltiselectDdOpen('1')" on-close="multiselectDdClose('1')" placeholder="Features" enable-select-all="true" max-items-display="1" dropdown-class="someClass"></multiselect-dropdown>
+			</div>
+			<div class="info">
+				<h6>Dropdown with List of Features</h6>
+				<span class="curr-value" ng-if="model.features.length > 0">
+					<label for="">Current Value</label>
+					{{model.features}}
+				</span>
+			</div>	
+		</div>
+		<div class="normal-dropdown dropdown-btn">
+			<div class="multiselect-wrapper">
+				<multiselect-dropdown trigger-id="normal" dd-direction="bottom" options="multiselectDdOptions" display-prop="displayName" value-prop="value" ng-model="model.normal" on-select="multiselectSelection('2')"  on-open="miltiselectDdOpen('2')" on-close="multiselectDdClose('2')" placeholder="Normal Multiselect" max-selections-allowed="5" max-dd-height="100px" enable-select-all="true"></multiselect-dropdown>
+			</div>
+			<div class="info">
+				<h6>Dropdown with normal checkboxes</h6>
+				<span class="curr-value" ng-if="model.normal.length > 0">
+					<label for="">Current Value</label>
+					{{model.normal}}
+				</span>
+			</div>	
+		</div>
+		<div class="material-dropdown dropdown-btn">
+			<div class="multiselect-wrapper">
+				<multiselect-dropdown trigger-id="material" dd-direction="bottom" options="multiselectDdOptions" display-prop="displayName" value-prop="value" ng-model="model.material" on-select="multiselectSelection('3')"  on-open="miltiselectDdOpen('3')" on-close="multiselectDdClose('3')" placeholder="Material Multiselect" max-selections-allowed="5" max-dd-height="100px" enable-select-all="true" theme="material"></multiselect-dropdown>
+			</div>	
+			<div class="info">
+				<h6>Dropdown with material checkboxes</h6>
+				<span class="curr-value" ng-if="model.material.length > 0">
+					<label for="">Current Value</label>
+					{{model.material}}
+				</span>
+			</div>
+		</div>
+		<div class="limited-dropdown dropdown-btn">
+			<div class="multiselect-wrapper">
+				<multiselect-dropdown trigger-id="limited" dd-direction="bottom" options="multiselectDdOptions" display-prop="displayName" value-prop="value" ng-model="model.limited" on-select="multiselectSelection('4')" on-open="miltiselectDdOpen('4')" on-close="multiselectDdClose('4')" placeholder="Limited Selections" max-selections-allowed="2" max-dd-height="100px" enable-select-all="false" theme="material"></multiselect-dropdown>	
+			</div>
+			<div class="info">
+				<h6>Dropdown with limited allowed selections</h6>
+				<span class="curr-value" ng-if="model.limited.length > 0">
+					<label for="">Current Value</label>
+					{{model.limited}}
+				</span>
+			</div>
+		</div>
+		<!-- <div class="limited-selections-dropdown dropdown-btn">
+			<multiselect-dropdown trigger-id="multi" dd-direction="bottom" options="multiselectDdOptions" display-prop="displayName" value-prop="value" ng-model="multiselectModel" on-select="multiselectSelection()" on-close="multiselectDdClose()" placeholder="Make Selection" max-selections-allowed="5" max-dd-height="100px" enable-select-all="true" theme="material"></multiselect-dropdown>	
+		</div> -->
+	</div>
+	<div class="flash-message">
+		{{message}}
+	</div>
+	<footer>
+		<a href="https://github.com/FauzanKhan/angular-multiselect-dropdown" target="_blank">
+			<img src="http://cdn.flaticon.com/png/256/25231.png" alt=""></--> Fork on GitHub
+		</a>
+	</footer>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0-rc.2/angular.min.js"></script>
+	<script src="dist/js/app.min.js"></script>
+	<script src="dist/js/ngPopover.min.js"></script>
+	<script src="dist/js/ngMultiselectDropdown.min.js"></script>
+</body>
+</html>
