@@ -32,22 +32,22 @@ angular.module('myApp', ['ngPopover', 'multiselectDropdown']);
 ```html
 
 <multiselect-dropdown 
-	options:="itemList" // [required] List of items to be selected (Must be an array of objects)
-	ngModel="selection.model" // [required]Model to which the selected items are binded
-	onSelect="selectCallback()" //Funtion to be executed on selection of a value
-	onClose="closeCallback()" // Function to be executed on closing the selection dropdown
-	onOpen="openCallback()" // Funtction to be executed on opening the selection dropdown
+	options:="itemList"                        // [required] List of items to be selected (Must be an array of objects)
+	ngModel="selection.model"       // [required]Model to which the selected items are binded
+	onSelect="selectCallback()"       //Funtion to be executed on selection of a value
+	onClose="closeCallback()"       // Function to be executed on closing the selection dropdown
+	onOpen="openCallback()"       // Funtction to be executed on opening the selection dropdown
 
-	displayProp="name" // [required] The key in options with text that you want to be display next to checkboxes
-	valueProp="value" // [required] The key in options that you want to be pushed to the model on selection
-	maxItemsDisplay="4" // Max no. of items that you want to display on the selection button (Default is 3)
-	triggerId="uniqueId" // [required]Unique Id for the dropdown
-	ddDirection="top" // Direction in which you want to open the dropdown relative to selection button (Can be 'left', 'right', 'top', 'bottom' | default is 'bottom')
+	displayProp="name"                    // [required] The key in options with text that you want to be display next to checkboxes
+	valueProp="value"                     // [required] The key in options that you want to be pushed to the model on selection
+	maxItemsDisplay="4"             // Max no. of items that you want to display on the selection button (Default is 3)
+	triggerId="uniqueId"             // [required]Unique Id for the dropdown
+	ddDirection="top"             // Direction in which you want to open the dropdown relative to selection button (Can be 'left', 'right', 'top', 'bottom' | default is 'bottom')
 
-	placeholder="Select Items" // The placeholder for selections (Default is 'Select')
-	maxSelectionsAllowed="4", //Maximum number of selections allowed
-	enableSelectAll="true" // Enable the select all button
-	theme="material" // set it equal to 'material' for material checkboxes (needs google material icons)
+	placeholder="Select Items"           // The placeholder for selections (Default is 'Select')
+	maxSelectionsAllowed="4",        //Maximum number of selections allowed
+	enableSelectAll="true"               // Enable the select all button
+	theme="material"                    // set it equal to 'material' for material checkboxes (needs google material icons)
 	dropdownClass="myClass" // Custom class for selection dropdown to override styles>
 
 </multiselect-dropdown>
