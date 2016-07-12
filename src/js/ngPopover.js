@@ -1,7 +1,7 @@
 ;(function(angular){
     'use strict'
     var app = angular.module('ngPopover', []);
-    app.directive('ngPopover', function() {
+    app.directive('ngPopover', ['$timeout', function($timeout) {
         return {
             restrict: 'EA',
             scope: {
@@ -54,39 +54,43 @@
 
                 // calculates the position of the popover
                 var calcPopoverPosition = function(trigger, target){
-                    target.classList.toggle('hide');
-                    var targetWidth = target.offsetWidth;
-                    var targetHeight = target.offsetHeight;
-                    target.classList.toggle('hide');
-                    var triggerWidth = trigger.offsetWidth;
-                    var triggerHeight = trigger.offsetHeight;
-                    switch($scope.dropDirection){
-                        case 'left': {
-                            left = getTriggerOffset().left - targetWidth - 10 + 'px';
-                            top = getTriggerOffset().top + 'px';
-                            break;
-                        }
+                    // Yes, I know this looks bad but taht's why its a hotfix  :D if you've got some time please propose a better fix for issue- https://github.com/FauzanKhan/angular-multiselect-dropdown/issues/1
+                    $timeout(function(){
+                        target =  document.querySelector('.ng-popover[trigger="'+$scope.trigger+'"]');
+                        target.classList.toggle('hide' );
+                        var targetWidth = target.offsetWidth;
+                        var targetHeight = target.offsetHeight;
+                        target.classList.toggle('hide');
+                        var triggerWidth = trigger.offsetWidth;
+                        var triggerHeight = trigger.offsetHeight;
+                        switch($scope.dropDirection){
+                            case 'left': {
+                                left = getTriggerOffset().left - targetWidth - 10 + 'px';
+                                top = getTriggerOffset().top + 'px';
+                                break;
+                            }
 
-                        case 'right':{
-                            left = getTriggerOffset().left + triggerWidth + 10 + 'px';
-                            top = getTriggerOffset().top + 'px';
-                            break;
-                        } 
+                            case 'right':{
+                                left = getTriggerOffset().left + triggerWidth + 10 + 'px';
+                                top = getTriggerOffset().top + 'px';
+                                break;
+                            } 
 
-                        case'top':{
-                            left = getTriggerOffset().left + 'px';
-                            top = getTriggerOffset().top - targetHeight - 10 + 'px';
-                            break;
-                        }
+                            case'top':{
+                                left = getTriggerOffset().left + 'px';
+                                top = getTriggerOffset().top - targetHeight - 10 + 'px';
+                                break;
+                            }
 
-                        default:{
-                            left = getTriggerOffset().left +'px';
-                            top = getTriggerOffset().top + triggerHeight + 10 + 'px'
+                            default:{
+                                left = getTriggerOffset().left +'px';
+                                top = getTriggerOffset().top + triggerHeight + 10 + 'px'
+                            }
                         }
-                    }
-                    target.style.position = 'absolute';
-                    target.style.left = left;
-                    target.style.top = top;
+                        target.style.position = 'absolute';
+                        target.style.left = left;
+                        target.style.top = top;
+                    });
                 }
                 calcPopoverPosition(trigger, target);
             },
@@ -119,7 +123,7 @@
             }],
             template: '<div class="ng-popover hide"><div class="ng-popover-wrapper {{dropDirection}}"><div class="ng-popover-content" ng-class="popoverClass"><ng-transclude></ng-transclude></div></div></div>'
         }
-    });
+    }]);
 
     app.factory('ngPopoverFactory', function(){
         return {
