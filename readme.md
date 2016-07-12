@@ -1,4 +1,4 @@
-# ngMultiselectDropdown
+# ngMultiselectDropdown | Angular multi select dropdown
 An elegant, easily customizable multi select dropdown in Angular built on top of my <a href="https://github.com/FauzanKhan/angular-popover" target="_blank">ngPopover directive</a>.
 
 ### Description
