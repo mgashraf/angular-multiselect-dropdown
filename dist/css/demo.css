@@ -39,15 +39,15 @@ body {
       vertical-align: top;
       min-height: 200px;
       text-align: left; }
-      body .multiselect-demo-container .dropdown-btn .multiselect-wrapper {
-        padding-left: 60px; }
+      body .multiselect-demo-container .dropdown-btn .multiselect-wrapper .ng-popover-trigger {
+        display: block; }
       body .multiselect-demo-container .dropdown-btn:last-child {
         border-right: none; }
       body .multiselect-demo-container .dropdown-btn .info {
         text-align: center;
         padding: 10px 10px 20px 10px;
         border: 1px solid #EAEAEA;
-        margin-top: 20px;
+        margin-top: 3px;
         background: #FFF;
         min-height: 200px;
         box-shadow: 0px 5px 10px #EAEAEA;
