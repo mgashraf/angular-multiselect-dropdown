@@ -39,18 +39,7 @@
 				</span>
 			</div>	
 		</div>
-		<div class="material-dropdown dropdown-btn">
-			<div class="multiselect-wrapper">
-				<multiselect-dropdown trigger-id="material" dd-direction="bottom" options="multiselectDdOptions" display-prop="displayName" value-prop="value" ng-model="model.material" on-select="multiselectSelection('3')"  on-open="miltiselectDdOpen('3')" on-close="multiselectDdClose('3')" placeholder="Material Multiselect" max-selections-allowed="5" max-dd-height="100px" enable-select-all="true" theme="material"></multiselect-dropdown>
-			</div>	
-			<div class="info">
-				<h6>Dropdown with material checkboxes</h6>
-				<span class="curr-value" ng-if="model.material.length > 0">
-					<label for="">Current Value</label>
-					{{model.material}}
-				</span>
-			</div>
-		</div>
+
 		<div class="limited-dropdown dropdown-btn">
 			<div class="multiselect-wrapper">
 				<multiselect-dropdown trigger-id="limited" dd-direction="bottom" options="multiselectDdOptions" display-prop="displayName" value-prop="value" ng-model="model.limited" on-select="multiselectSelection('4')" on-open="miltiselectDdOpen('4')" on-close="multiselectDdClose('4')" placeholder="Limited Selections" max-selections-allowed="2" max-dd-height="100px" enable-select-all="false" theme="material"></multiselect-dropdown>	
@@ -76,8 +65,8 @@
 		</a>
 	</footer>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0-rc.2/angular.min.js"></script>
-	<script src="dist/js/app.min.js"></script>
-	<script src="dist/js/ngPopover.min.js"></script>
-	<script src="dist/js/ngMultiselectDropdown.min.js"></script>
+	<script src="src/js/app.js"></script>
+	<script src="src/js/ngPopover.js"></script>
+	<script src="src/js/ngMultiselectDropdown.js"></script>
 </body>
 </html>

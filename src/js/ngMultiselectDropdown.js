@@ -17,7 +17,6 @@ app.directive('multiselectDropdown', function(){
 			placeholder: '@', // The placeholder for selections
 			maxSelectionsAllowed: '@', //Maximum number of selections allowed
 			enableSelectAll: '@', // Enable the select all button
-			theme: '@', // set it equal to 'material' for material checkboxes (needs google material icons)
 			dropdownClass: '@' // Custom class for selection dropdown to override styles
 		},
 		link: {
@@ -28,7 +27,7 @@ app.directive('multiselectDropdown', function(){
 				scope.ngModel = scope.ngModel ? scope.ngModel : [];
 				scope.allSelected = scope.ngModel.length == scope.options.length ? true : false;
 				attrs.maxSelectionsAllowed = attrs.maxSelectionsAllowed ? attrs.maxSelectionsAllowed : scope.options.length;
-				var theme = attrs.theme || 'normal';
+				var theme = 'normal';
 				var defaultPlaceholder = scope.btnText;
 				var compile = ctrl.compile;
 				var body = document.querySelector('body');
@@ -101,27 +100,14 @@ app.directive('multiselectDropdown', function(){
 
 				// Returns template for checkboxes depending upon the selected theme and the type of checkbox (normal/selectAll)
 				var getCheckbox = function(allCheckbox){
-					var materialCheckbox;
-					var normalCheckbox ;
+					var checkbox ;
 					//if it is a select all checkbox
 					if(allCheckbox){
-						normalCheckbox =  '<input type="checkbox" name="'+triggerId+'" id="all-'+triggerId+'" ng-checked="allSelected" ng-click="selectAll()">';
-									
-						materialCheckbox = '<span class="checkbox-container">'+
-										'<input type="checkbox" name="'+triggerId+'" id="all-'+triggerId+'" ng-checked="allSelected" ng-click="selectAll()">'+
-										'<span class="icon-tick"><i class="material-icons">check</i></span>'+
-									'</span>';
+                        checkbox =  '<input type="checkbox" name="'+triggerId+'" id="all-'+triggerId+'" ng-checked="allSelected" ng-click="selectAll()">';
 					}
 					else{
-						materialCheckbox = '<span class="checkbox-container">'+
-										'<input type="checkbox" name="'+triggerId+'" id="option-'+triggerId+'-{{option[\''+valueProp.replace(/ /g,'')+'\']}}" ng-checked="ngModel.indexOf(option[\''+valueProp+'\']) > -1" ng-click="updateCheckedColumns($event, option[\''+valueProp+'\'])">'+
-										'<span class="icon-tick"><i class="material-icons">check</i></span>'+
-									'</span>';
-
-						normalCheckbox = '<input type="checkbox" name="'+triggerId+'" id="option-'+triggerId+'-{{option[\''+valueProp.replace(/ /g,'')+'\']}}" ng-checked="ngModel.indexOf(option[\''+valueProp+'\']) > -1" ng-click="updateCheckedColumns($event, option[\''+valueProp+'\'])">';						
+                        checkbox = '<input type="checkbox" name="'+triggerId+'" id="option-'+triggerId+'-{{option[\''+valueProp.replace(/ /g,'')+'\']}}" ng-checked="ngModel.indexOf(option[\''+valueProp+'\']) > -1" ng-click="updateCheckedColumns($event, option[\''+valueProp+'\'])">';
 					}
-
-					var checkbox = theme == 'material' ? materialCheckbox : normalCheckbox;
 					return checkbox;
 				}
 				// Template for the selection dropdown (using ngPopover directive - https://github.com/FauzanKhan/angular-popover)

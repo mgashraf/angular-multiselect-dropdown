@@ -23,7 +23,7 @@
                 // Add click event listener to trigger
                 trigger.addEventListener('click', function(ev){
                     var left, top;
-                    var trigger = this; //get trigger element 
+                    var trigger = this; //get trigger element
                     var target =  document.querySelector('.ng-popover[trigger="'+$scope.trigger+'"]'); //get triger's target popover
                     ev.preventDefault();
                     calcPopoverPosition(trigger, target); //calculate the position of the popover
@@ -74,7 +74,7 @@
                                 left = getTriggerOffset().left + triggerWidth + 10 + 'px';
                                 top = getTriggerOffset().top + 'px';
                                 break;
-                            } 
+                            }
 
                             case'top':{
                                 left = getTriggerOffset().left + 'px';
